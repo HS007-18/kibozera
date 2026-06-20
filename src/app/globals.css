@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #b8c3ff;
+  --color-primary-container: #2d5bff;
+  --color-primary-fixed: #dde1ff;
+  --color-primary-fixed-dim: #b8c3ff;
+  --color-on-primary: #002387;
+  --color-on-primary-container: #efefff;
+  --color-on-primary-fixed: #001355;
+  --color-on-primary-fixed-variant: #0035bd;
+  
+  --color-secondary: #d0bcff;
+  --color-secondary-container: #571bc1;
+  --color-secondary-fixed: #e9ddff;
+  --color-secondary-fixed-dim: #d0bcff;
+  --color-on-secondary: #3c0091;
+  --color-on-secondary-container: #c4abff;
+  --color-on-secondary-fixed: #23005c;
+  --color-on-secondary-fixed-variant: #5516be;
+
+  --color-tertiary: #ffb59b;
+  --color-tertiary-container: #c24100;
+  --color-tertiary-fixed: #ffdbcf;
+  --color-tertiary-fixed-dim: #ffb59b;
+  --color-on-tertiary: #5b1a00;
+  --color-on-tertiary-container: #ffece6;
+  --color-on-tertiary-fixed: #380d00;
+  --color-on-tertiary-fixed-variant: #812900;
+
+  --color-surface: #111317;
+  --color-surface-variant: #333539;
+  --color-surface-container: #1e2024;
+  --color-surface-container-low: #1a1c20;
+  --color-surface-container-lowest: #0c0e12;
+  --color-surface-container-high: #282a2e;
+  --color-surface-container-highest: #333539;
+  --color-surface-bright: #37393e;
+  --color-surface-dim: #111317;
+  --color-surface-tint: #b8c3ff;
+
+  --color-on-surface: #e2e2e8;
+  --color-on-surface-variant: #c4c5d9;
+  --color-inverse-surface: #e2e2e8;
+  --color-inverse-on-surface: #2f3035;
+  --color-inverse-primary: #104af0;
+
+  --color-outline: #8e90a2;
+  --color-outline-variant: #434656;
+
+  --color-background: #111317;
+  --color-on-background: #e2e2e8;
+
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  --spacing-container-max: 1440px;
+  --spacing-margin-desktop: 64px;
+  --spacing-stack-sm: 8px;
+  --spacing-gutter: 24px;
+  --spacing-unit: 4px;
+  --spacing-margin-mobile: 20px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 32px;
+
+  /* Custom fonts */
+  --font-body-lg: var(--font-inter);
+  --font-headline-md: var(--font-outfit);
+  --font-display-lg-mobile: var(--font-outfit);
+  --font-body-md: var(--font-inter);
+  --font-display-lg: var(--font-outfit);
+  --font-label-sm: var(--font-geist);
+}
+
+@utility text-body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0em;
+  font-weight: 400;
+  font-family: var(--font-inter);
+}
+
+@utility text-headline-md {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  font-family: var(--font-outfit);
+}
+
+@utility text-display-lg-mobile {
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-family: var(--font-outfit);
+}
+
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0em;
+  font-weight: 400;
+  font-family: var(--font-inter);
+}
+
+@utility text-display-lg {
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  font-family: var(--font-outfit);
+}
+
+@utility text-label-sm {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  font-family: var(--font-geist);
+}
+
+:root {
+  --background: #050608;
+  --foreground: #e2e2e8;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  border-color: rgba(184, 195, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.25), 
+              0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+/* Spotlight element for 3D card tilts */
+.card-spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(184, 195, 255, 0.06), transparent 40%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ai-glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(139, 92, 246, 0) 70%);
+  z-index: -1;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #111317;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #333539;
+  border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: #8e90a2;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.animate-blink {
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse-slow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 35s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 45s linear infinite;
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+/* Coordinate Grid Background for Orchestration panel */
+.coordinate-grid {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(184, 195, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 195, 255, 0.04) 1px, transparent 1px);
+}
