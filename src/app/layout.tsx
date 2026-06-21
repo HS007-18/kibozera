@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     canonical: "https://kibozera.vercel.app",
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    google: "BDvfvycbfKKtWCj3lqh0QQWbrDey-aFiZNQow0_2PWI",
   },
 };
 

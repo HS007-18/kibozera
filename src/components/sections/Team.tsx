@@ -143,11 +143,11 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
       <NetworkBackground color={member.accentColor} />
 
       <div className="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
-        <div className={`flex flex-col ${isPhotoLeft ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-12 lg:gap-20`}>
+        <div className={`flex flex-col ${isPhotoLeft ? "md:flex-row" : "md:flex-row-reverse"} justify-center gap-8 md:gap-16 items-center`}>
 
           {/* Photo / Initials Side */}
           <div
-            className={`flex-shrink-0 w-full md:w-2/5 transition-all duration-1000 ease-out ${inView ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${imageSlide}`}`}
+            className={`flex-shrink-0 transition-all duration-1000 ease-out ${inView ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${imageSlide}`}`}
           >
             <div className="relative group flex justify-center">
               {/* Outer decorative ring */}
@@ -214,10 +214,10 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
           {/* Info Side */}
           <div
-            className={"flex-1 transition-all duration-1000 ease-out delay-200 " + (inView ? "opacity-100 translate-x-0" : "opacity-0 " + textSlide)}
+            className={`flex-shrink-0 w-72 md:w-80 transition-all duration-1000 ease-out delay-200 ${inView ? "opacity-100 translate-x-0" : `opacity-0 ${textSlide}`}`}
           >
             {/* Glassmorphism info panel */}
-            <div className="relative rounded-2xl p-6 md:p-8 border border-white/8 overflow-hidden md:h-[420px]"
+            <div className="relative rounded-2xl p-6 md:p-8 border border-white/8 overflow-hidden h-[420px]"
               style={{ background: "rgba(255,255,255,0.02)", backdropFilter: "blur(20px)" }}>
 
               {/* Corner accent */}
@@ -263,11 +263,11 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
                   {/* Skills */}
                   <div>
                     <p className="text-[9px] uppercase tracking-widest opacity-40 mb-1 font-label-sm">Focus Areas</p>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5">
+                    <div className="flex flex-wrap gap-1.5">
                       {member.skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-1 rounded text-[9px] font-semibold border transition-all duration-300 hover:scale-102 cursor-default text-center truncate"
+                          className="px-2.5 py-1 rounded text-[9px] font-semibold border transition-all duration-300 hover:scale-102 cursor-default text-center"
                           style={{
                             background: `${member.accentColor}08`,
                             borderColor: `${member.accentColor}25`,
