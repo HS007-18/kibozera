@@ -1,6 +1,7 @@
 import Workflow from "@/components/sections/Workflow";
 import TechShowcase from "@/components/sections/TechShowcase";
 import Industries from "@/components/sections/Industries";
+import Team from "@/components/sections/Team";
 import CTA from "@/components/sections/CTA";
 import GlowEffect from "@/components/ui/GlowEffect";
 import Reveal from "@/components/ui/Reveal";
@@ -33,6 +34,7 @@ export default function AboutPage() {
         <Workflow />
         <TechShowcase />
         <Industries />
+        <Team />
       </div>
 
       <CTA />
