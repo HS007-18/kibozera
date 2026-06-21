@@ -256,23 +256,24 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
                   )}
 
                   {/* Description */}
-                  <p className="text-on-surface-variant text-xs md:text-sm leading-relaxed mb-4 max-w-xl">
+                  <p className="text-on-surface-variant text-xs md:text-sm leading-relaxed mb-3 max-w-xl">
                     {member.description}
                   </p>
 
                   {/* Skills */}
                   <div>
-                    <p className="text-[9px] uppercase tracking-widest opacity-40 mb-1.5 font-label-sm">Focus Areas</p>
-                    <div className="flex flex-wrap gap-1">
+                    <p className="text-[9px] uppercase tracking-widest opacity-40 mb-1 font-label-sm">Focus Areas</p>
+                    <div className="grid grid-cols-2 gap-1.5">
                       {member.skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded text-[9px] font-semibold border transition-all duration-300 hover:scale-105 cursor-default"
+                          className="px-2.5 py-1 rounded text-[9px] font-semibold border transition-all duration-300 hover:scale-102 cursor-default text-center truncate"
                           style={{
                             background: `${member.accentColor}08`,
                             borderColor: `${member.accentColor}25`,
                             color: member.accentColor,
                           }}
+                          title={skill}
                         >
                           {skill}
                         </span>
