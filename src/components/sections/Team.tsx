@@ -147,7 +147,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
           {/* Photo / Initials Side */}
           <div
-            className={`flex-shrink-0 transition-all duration-1000 ease-out ${inView ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${imageSlide}`}`}
+            className={`flex-shrink-0 w-full md:w-2/5 transition-all duration-1000 ease-out ${inView ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${imageSlide}`}`}
           >
             <div className="relative group flex justify-center">
               {/* Outer decorative ring */}
@@ -214,10 +214,10 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
           {/* Info Side */}
           <div
-            className={`flex-shrink-0 w-72 md:w-80 transition-all duration-1000 ease-out delay-200 ${inView ? "opacity-100 translate-x-0" : `opacity-0 ${textSlide}`}`}
+            className={"flex-1 transition-all duration-1000 ease-out delay-200 " + (inView ? "opacity-100 translate-x-0" : "opacity-0 " + textSlide)}
           >
             {/* Glassmorphism info panel */}
-            <div className="relative rounded-2xl p-6 md:p-8 border border-white/8 overflow-hidden h-[420px]"
+            <div className="relative rounded-2xl p-6 md:p-8 border border-white/8 overflow-hidden md:h-[420px]"
               style={{ background: "rgba(255,255,255,0.02)", backdropFilter: "blur(20px)" }}>
 
               {/* Corner accent */}
