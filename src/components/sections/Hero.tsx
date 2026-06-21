@@ -25,6 +25,19 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[95vh] flex items-center overflow-hidden py-24 bg-[#050608]">
+      {/* Cover image background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/kz.png"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center opacity-10"
+        />
+        {/* Dark gradient overlays to keep text readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050608]/80 via-[#050608]/60 to-[#050608]/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050608]/70 via-transparent to-[#050608]/70" />
+      </div>
+
       {/* Dynamic Background Grids and glows */}
       <GlowEffect />
       <ParticleGrid />
