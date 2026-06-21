@@ -8,6 +8,7 @@ interface TeamMember {
   linkedin: string;
   initials: string;
   gradient: string;
+  photo?: string;
 }
 
 const teamMembers: TeamMember[] = [
@@ -17,6 +18,7 @@ const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/hari-siddesh-m",
     initials: "HS",
     gradient: "from-primary/20 to-cyan-500/20 text-cyan-300 border-cyan-500/30",
+    photo: undefined,
   },
   {
     name: "Dharanidharan",
@@ -24,6 +26,7 @@ const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/dharanidharan-v-796b0b32b/",
     initials: "DD",
     gradient: "from-secondary/20 to-purple-500/20 text-purple-300 border-purple-500/30",
+    photo: "/dharanidharan.png",
   },
   {
     name: "Varun Prasath D",
@@ -31,6 +34,7 @@ const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/varun-prasath-d-2a5236328",
     initials: "VP",
     gradient: "from-tertiary/20 to-orange-500/20 text-orange-300 border-orange-500/30",
+    photo: "/varun_prasath.png",
   },
 ];
 
@@ -54,10 +58,20 @@ export default function Team() {
               <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center gap-5 hover:scale-105 transition-all duration-300 group">
                 <div className="card-spotlight" />
                 
-                {/* Visual Avatar with initials & glowing border */}
-                <div className={`relative z-10 w-24 h-24 rounded-2xl bg-gradient-to-tr ${member.gradient} border flex items-center justify-center font-display-lg text-2xl font-bold tracking-wider shadow-inner`}>
-                  <div className="absolute inset-0 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  {member.initials}
+                {/* Visual Avatar with initials/photo & glowing border */}
+                <div className="relative z-10 w-24 h-24 rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary/30 transition-all flex items-center justify-center shadow-inner">
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-tr ${member.gradient} flex items-center justify-center font-display-lg text-2xl font-bold tracking-wider`}>
+                      {member.initials}
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
 
                 <div className="relative z-10 space-y-1">
