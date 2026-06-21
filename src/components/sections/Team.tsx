@@ -263,7 +263,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
                   {/* Skills */}
                   <div>
                     <p className="text-[9px] uppercase tracking-widest opacity-40 mb-1 font-label-sm">Focus Areas</p>
-                    <div className="grid grid-cols-2 gap-1.5">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5">
                       {member.skills.map((skill, i) => (
                         <span
                           key={i}
