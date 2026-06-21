@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Workflow from "@/components/sections/Workflow";
 import TechShowcase from "@/components/sections/TechShowcase";
 import Industries from "@/components/sections/Industries";
 import CTA from "@/components/sections/CTA";
 import GlowEffect from "@/components/ui/GlowEffect";
 import Reveal from "@/components/ui/Reveal";
+
+export const metadata: Metadata = {
+  title: "About Us | AI Automation Pioneers",
+  description: "Discover our mission, advanced tech stack, custom listening process, and how we engineer tailor-made machine learning systems and intelligent automation workflows for enterprises.",
+};
 
 export default function AboutPage() {
   return (

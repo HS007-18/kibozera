@@ -20,8 +20,40 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Kibozera | Transform Your Business With Intelligent AI Automation",
+  metadataBase: new URL("https://kibozera.vercel.app"),
+  title: {
+    default: "Kibozera | Transform Your Business With Intelligent AI Automation",
+    template: "%s | Kibozera",
+  },
   description: "Kibozera builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering.",
+  keywords: ["AI Automation", "Workflow Automation", "Enterprise AI", "Machine Learning Solutions", "Kibozera", "Operations Optimization", "AI Agents", "Business Intelligence"],
+  authors: [{ name: "Kibozera Team" }],
+  creator: "Kibozera",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://kibozera.vercel.app",
+    title: "Kibozera | Transform Your Business With Intelligent AI Automation",
+    description: "Kibozera builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering.",
+    siteName: "Kibozera",
+    images: [
+      {
+        url: "/kibo.png",
+        width: 1200,
+        height: 630,
+        alt: "Kibozera AI Automation Systems",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kibozera | Transform Your Business With Intelligent AI Automation",
+    description: "Kibozera builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering.",
+    images: ["/kibo.png"],
+  },
+  alternates: {
+    canonical: "https://kibozera.vercel.app",
+  },
 };
 
 export default function RootLayout({

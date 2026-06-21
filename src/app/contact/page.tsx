@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import ContactForm from "@/components/sections/ContactForm";
 import GlowEffect from "@/components/ui/GlowEffect";
 import Reveal from "@/components/ui/Reveal";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Start Your AI Transformation",
+  description: "Get in touch with Kibozera's automation engineers. Submit your operations brief or request a custom AI feasibility assessment for your workflows.",
+};
 
 export default function ContactPage() {
   return (

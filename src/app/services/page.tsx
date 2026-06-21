@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import CoreCapabilities from "@/components/sections/CoreCapabilities";
 import CTA from "@/components/sections/CTA";
 import GlowEffect from "@/components/ui/GlowEffect";
 import Reveal from "@/components/ui/Reveal";
+
+export const metadata: Metadata = {
+  title: "Our Services | Intelligent AI Automation Solutions",
+  description: "Explore our capabilities in custom AI agents, workflow orchestration, business process design, operations automation, and high-performance software ecosystems.",
+};
 
 export default function ServicesPage() {
   return (
