@@ -56,7 +56,7 @@ export default function Hero() {
         
         {/* Main Large-scale Typewritten Headline */}
         <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full my-4 md:my-6">
-          <h1 className="font-display-lg text-4xl sm:text-5xl md:text-[62px] font-bold leading-[1.1] text-white tracking-tight uppercase">
+          <h1 className="font-display-lg text-4xl sm:text-5xl md:text-[62px] font-bold leading-[1.15] text-white uppercase word-spacing-wide">
             {headlineText}
             {headlineText.length < fullHeadline.length && (
               <span className="animate-blink border-r-4 border-cyan-400 ml-1">&nbsp;</span>

@@ -226,7 +226,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
                 {/* Name */}
                 <h2
-                  className="font-display-lg text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tight"
+                  className="font-display-lg text-4xl md:text-5xl font-black mb-6 leading-snug"
                   style={{ color: "#fff" }}
                 >
                   {member.name}
@@ -275,7 +275,7 @@ export default function Team() {
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           THE PEOPLE BEHIND KIBOZERA
         </div>
-        <h2 className="font-display-lg text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+        <h2 className="font-display-lg text-4xl md:text-5xl font-black text-white mb-4">
           Our Founding Team
         </h2>
         <div className="h-0.5 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
