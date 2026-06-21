@@ -19,7 +19,7 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Hari Siddesh",
+    name: "Hari Siddesh M",
     role: "CEO & Chief AI/Automation Officer",
     description:
       "Responsible for company vision, AI strategy, automation architecture, technology direction, and building intelligent solutions that solve real business problems.",
@@ -34,7 +34,7 @@ const teamMembers: TeamMember[] = [
     phone: "9361724730",
   },
   {
-    name: "Varun Prasath",
+    name: "Varun Prasath D",
     role: "CMO & Client Success Lead",
     description:
       "Responsible for brand growth, client relationships, marketing strategy, customer communication, and building strong partnerships with businesses.",
@@ -49,7 +49,7 @@ const teamMembers: TeamMember[] = [
     phone: "9487848316",
   },
   {
-    name: "Dharanidharan",
+    name: "Dharanidharan V",
     role: "CPO & Operations Lead",
     description:
       "Responsible for product development, solution planning, project execution, and managing daily company operations to ensure smooth delivery of automation projects.",
