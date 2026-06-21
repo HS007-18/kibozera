@@ -29,6 +29,7 @@ export default function Footer() {
           <h5 className="font-bold mb-6 text-primary">Company</h5>
           <ul className="space-y-4 text-on-surface-variant text-sm">
             <li><Link href="/about" className="hover:text-primary transition-colors">Careers</Link></li>
+            <li><Link href="/team" className="hover:text-primary transition-colors">Team</Link></li>
             <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             <li><Link href="/about" className="hover:text-primary transition-colors">Privacy</Link></li>
           </ul>
