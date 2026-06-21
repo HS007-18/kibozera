@@ -80,7 +80,8 @@
 @utility text-body-lg {
   font-size: 18px;
   line-height: 28px;
-  letter-spacing: 0em;
+  letter-spacing: 0.01em;
+  word-spacing: 0.06em;
   font-weight: 400;
   font-family: var(--font-inter);
 }
@@ -88,7 +89,8 @@
 @utility text-headline-md {
   font-size: 32px;
   line-height: 44px;
-  letter-spacing: 0em;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
   font-weight: 500;
   font-family: var(--font-outfit);
 }
@@ -96,7 +98,8 @@
 @utility text-display-lg-mobile {
   font-size: 40px;
   line-height: 52px;
-  letter-spacing: 0em;
+  letter-spacing: 0.02em;
+  word-spacing: 0.1em;
   font-weight: 600;
   font-family: var(--font-outfit);
 }
@@ -112,7 +115,8 @@
 @utility text-display-lg {
   font-size: 64px;
   line-height: 76px;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
+  word-spacing: 0.12em;
   font-weight: 600;
   font-family: var(--font-outfit);
 }
@@ -121,6 +125,7 @@
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.05em;
+  word-spacing: 0.06em;
   font-weight: 500;
   font-family: var(--font-geist);
 }
@@ -134,6 +139,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  word-spacing: 0.06em;
 }
 
 .glass-card {

@@ -22,7 +22,6 @@ export default function Footer() {
           <ul className="space-y-4 text-on-surface-variant text-sm">
             <li><Link href="/services" className="hover:text-primary transition-colors">Automation</Link></li>
             <li><Link href="/services" className="hover:text-primary transition-colors">Security</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">API</Link></li>
           </ul>
         </div>
         <div>
@@ -34,13 +33,7 @@ export default function Footer() {
             <li><Link href="/about" className="hover:text-primary transition-colors">Privacy</Link></li>
           </ul>
         </div>
-        <div className="col-span-2 md:col-span-1 mt-8 md:mt-0">
-          <h5 className="font-bold mb-6 text-primary">Terms</h5>
-          <ul className="space-y-4 text-on-surface-variant text-sm">
-            <li><Link href="/about" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-            <li><Link href="/about" className="hover:text-primary transition-colors">Legal Policy</Link></li>
-          </ul>
-        </div>
+
       </div>
       <div className="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-white/5 text-center">
         <p className="text-on-surface-variant text-xs opacity-50">© {new Date().getFullYear()} Kibozera AI. Precision. Intelligence. Power.</p>
