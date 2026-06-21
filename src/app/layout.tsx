@@ -3,7 +3,6 @@ import { Inter, Outfit, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import PromoModal from "@/components/ui/PromoModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,7 +46,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <PromoModal />
       </body>
     </html>
   );
