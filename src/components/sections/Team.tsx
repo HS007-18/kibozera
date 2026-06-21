@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
     glowColor: "rgba(184,195,255,0.25)",
     layout: "left",
     education: "3rd Year B.E / CSE (AI & ML) — KIT, Tiruppur",
-    linkedin: "https://www.linkedin.com/company/kibozera/",
+    linkedin: "https://www.linkedin.com/in/hari-siddesh-m",
     phone: "9361724730",
   },
   {
@@ -45,7 +45,7 @@ const teamMembers: TeamMember[] = [
     glowColor: "rgba(255,181,155,0.25)",
     layout: "right",
     education: "3rd Year B.E / CSE (AI & ML) — KIT, Tiruppur",
-    linkedin: "https://www.linkedin.com/company/kibozera/",
+    linkedin: "https://www.linkedin.com/in/varun-prasath-d-2a5236328",
     phone: "9487848316",
   },
   {
@@ -60,7 +60,7 @@ const teamMembers: TeamMember[] = [
     glowColor: "rgba(208,188,255,0.25)",
     layout: "left",
     education: "3rd Year B.E / CSE (AI & ML) — KIT, Tiruppur",
-    linkedin: "https://www.linkedin.com/company/kibozera/",
+    linkedin: "https://www.linkedin.com/in/dharanidharan-v-796b0b32b",
     phone: "6383764299",
   },
 ];
