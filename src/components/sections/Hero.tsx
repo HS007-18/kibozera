@@ -42,7 +42,7 @@ export default function Hero() {
         </Reveal>
         
         {/* Main Large-scale Typewritten Headline */}
-        <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full">
+        <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full my-4 md:my-6">
           <h1 className="font-display-lg text-4xl sm:text-5xl md:text-[62px] font-bold leading-[1.1] text-white tracking-tight uppercase">
             {headlineText}
             {headlineText.length < fullHeadline.length && (
@@ -53,8 +53,8 @@ export default function Hero() {
 
         {/* Minimal 2-Line Subtext */}
         <Reveal delay={200} direction="up" className="w-full flex justify-center">
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-            Sylvie engineers AI-driven automation systems that eliminate operational friction, streamline workflows, and scale business intelligence with precision architecture.
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mt-6 sm:mt-8 md:mt-10">
+            Kibozera engineers AI-driven automation systems that eliminate operational friction, streamline workflows, and scale business intelligence with precision architecture.
           </p>
         </Reveal>
 

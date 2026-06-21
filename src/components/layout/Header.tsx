@@ -17,11 +17,15 @@ export default function Header() {
     <nav className="fixed w-full top-0 z-50 bg-[#111317]/80 backdrop-blur-xl border-b border-white/10 shadow-sm">
       <div className="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
         <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center">
-            {/* Logo Placeholder */}
-            <div className="h-8 w-32 bg-white/5 border border-dashed border-white/20 rounded flex items-center justify-center">
-              <span className="text-[10px] uppercase tracking-wider text-on-surface-variant font-label-sm">Logo Space</span>
-            </div>
+          <Link href="/" className="flex items-center gap-3 group">
+            <img
+              src="/kz.png"
+              alt="Kibozera Logo"
+              className="h-9 w-9 object-contain rounded-md border border-white/10 group-hover:border-primary/50 transition-colors"
+            />
+            <span className="text-xl font-bold font-headline-md text-primary tracking-wide group-hover:text-white transition-colors">
+              Kibozera
+            </span>
           </Link>
         </div>
         

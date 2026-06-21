@@ -1,6 +1,7 @@
 import Workflow from "@/components/sections/Workflow";
 import TechShowcase from "@/components/sections/TechShowcase";
 import Industries from "@/components/sections/Industries";
+import Team from "@/components/sections/Team";
 import CTA from "@/components/sections/CTA";
 import GlowEffect from "@/components/ui/GlowEffect";
 import Reveal from "@/components/ui/Reveal";
@@ -14,7 +15,7 @@ export default function AboutPage() {
       <div className="max-w-container-max mx-auto px-margin-desktop text-center mt-12 mb-16 relative z-10">
         <Reveal direction="up" delay={0}>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-stack-md">
-            ABOUT SYLVIE
+            ABOUT KIBOZERA
           </div>
         </Reveal>
         <Reveal direction="up" delay={150}>
@@ -33,6 +34,7 @@ export default function AboutPage() {
         <Workflow />
         <TechShowcase />
         <Industries />
+        <Team />
       </div>
 
       <CTA />

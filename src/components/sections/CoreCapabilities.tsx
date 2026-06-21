@@ -41,6 +41,11 @@ const capabilities: Capability[] = [
     title: "AI Integration",
     description: "Seamlessly connect your legacy systems with the latest AI frameworks and APIs.",
   },
+  {
+    icon: "palette",
+    title: "UI/UX & Web Design",
+    description: "Crafting modern, intuitive, and responsive interfaces that captivate users and elevate brand identity.",
+  },
 ];
 
 function TiltCard({ children }: { children: React.ReactNode }) {

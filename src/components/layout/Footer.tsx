@@ -6,11 +6,12 @@ export default function Footer() {
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-gutter max-w-container-max mx-auto px-margin-desktop">
         <div className="col-span-2">
           <div className="flex items-center gap-3 mb-6">
-            {/* Logo Placeholder */}
-            <div className="h-6 w-24 bg-white/5 border border-dashed border-white/20 rounded flex items-center justify-center">
-              <span className="text-[9px] uppercase tracking-wider text-on-surface-variant font-label-sm">Logo Space</span>
-            </div>
-            <span className="text-headline-md font-headline-md font-bold text-primary">Sylvie</span>
+            <img
+              src="/kz.png"
+              alt="Kibozera Logo"
+              className="h-8 w-8 object-contain rounded-md border border-white/10"
+            />
+            <span className="text-headline-md font-headline-md font-bold text-primary">Kibozera</span>
           </div>
           <p className="text-on-surface-variant text-sm mb-6 max-w-xs leading-relaxed">
             Pioneering the next era of business intelligence through sophisticated AI automation and precise engineering.
@@ -41,7 +42,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-white/5 text-center">
-        <p className="text-on-surface-variant text-xs opacity-50">© {new Date().getFullYear()} Sylvie AI. Precision. Intelligence. Power.</p>
+        <p className="text-on-surface-variant text-xs opacity-50">© {new Date().getFullYear()} Kibozera AI. Precision. Intelligence. Power.</p>
       </div>
     </footer>
   );

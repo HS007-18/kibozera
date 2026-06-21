@@ -3,6 +3,7 @@ import { Inter, Outfit, Geist } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import PromoModal from "@/components/ui/PromoModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,8 +21,8 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Sylvie | Transform Your Business With Intelligent AI Automation",
-  description: "Sylvie builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering.",
+  title: "Kibozera | Transform Your Business With Intelligent AI Automation",
+  description: "Kibozera builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering.",
 };
 
 export default function RootLayout({
@@ -46,6 +47,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <PromoModal />
       </body>
     </html>
   );
