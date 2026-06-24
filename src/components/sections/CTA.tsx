@@ -7,7 +7,7 @@ export default function CTA() {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px]"></div>
       </div>
-      <div className="max-w-4xl mx-auto px-margin-desktop text-center relative z-10">
+      <div className="max-w-4xl mx-auto px-5 md:px-margin-desktop text-center relative z-10">
         <Reveal direction="up" delay={0}>
           <h2 className="font-display-lg text-display-lg-mobile md:text-5xl mb-stack-md text-white">
             Ready To Build Your Intelligent Future?

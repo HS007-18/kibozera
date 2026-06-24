@@ -13,7 +13,7 @@ export default function ContactPage() {
     <div className="relative min-h-[90vh] overflow-hidden py-16">
       <GlowEffect />
 
-      <div className="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-3 gap-12 mt-12 mb-16 relative z-10">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 mt-8 md:mt-12 mb-10 md:mb-16 relative z-10">
         {/* Info Column */}
         <div className="lg:col-span-1 flex flex-col justify-center gap-6">
           <Reveal direction="up" delay={0}>

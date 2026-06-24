@@ -77,7 +77,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col font-body-md text-body-md scrollbar-custom bg-[#050608] text-[#e2e2e8]">
         <Header />
-        <main className="flex-grow pt-20">
+        <main className="flex-grow pt-16 md:pt-20">
           {children}
         </main>
         <Footer />

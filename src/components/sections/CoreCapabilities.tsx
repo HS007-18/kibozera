@@ -103,7 +103,7 @@ export default function CoreCapabilities({ limit, showTitle = true }: CoreCapabi
 
   return (
     <section className="py-stack-lg relative z-10">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop">
         {showTitle && (
           <Reveal>
             <div className="text-center mb-16">

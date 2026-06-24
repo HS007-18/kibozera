@@ -17,7 +17,7 @@ const techItems: TechItem[] = [
 export default function TechShowcase() {
   return (
     <section className="py-stack-lg">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop">
         <Reveal>
           <div className="text-center mb-12">
             <h2 className="font-headline-md text-headline-md mb-stack-sm">Our Technical Ecosystem</h2>

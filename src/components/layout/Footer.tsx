@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="w-full py-stack-lg bg-surface-container-lowest border-t border-white/5 mt-auto">
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-gutter max-w-container-max mx-auto px-5 md:px-margin-desktop">
         <div className="col-span-2">
           <div className="flex items-center gap-3 mb-6">
             <img
@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
 
       </div>
-      <div className="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-white/5 text-center">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop mt-12 md:mt-16 pt-8 border-t border-white/5 text-center">
         <p className="text-on-surface-variant text-xs opacity-50">© {new Date().getFullYear()} Kibozera AI. Precision. Intelligence. Power.</p>
       </div>
     </footer>

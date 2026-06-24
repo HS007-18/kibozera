@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[95vh] flex items-center overflow-hidden py-24 bg-[#050608]">
+    <section className="relative min-h-[90vh] md:min-h-[95vh] flex items-center overflow-hidden py-16 md:py-24 bg-[#050608]">
       {/* Cover image background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -42,7 +42,7 @@ export default function Hero() {
       <GlowEffect />
       <ParticleGrid />
       
-      <div className="max-w-4xl mx-auto px-margin-desktop flex flex-col items-center justify-center gap-6 w-full relative z-10 text-center">
+      <div className="max-w-4xl mx-auto px-5 md:px-margin-desktop flex flex-col items-center justify-center gap-4 md:gap-6 w-full relative z-10 text-center">
         
         <Reveal delay={0} direction="up" className="flex justify-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-2">
@@ -56,7 +56,7 @@ export default function Hero() {
         
         {/* Main Large-scale Typewritten Headline */}
         <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full my-4 md:my-6">
-          <h1 className="font-display-lg text-4xl sm:text-5xl md:text-[62px] font-bold leading-[1.15] text-white uppercase word-spacing-wide">
+          <h1 className="font-display-lg text-3xl sm:text-5xl md:text-[62px] font-bold leading-[1.15] text-white uppercase word-spacing-wide">
             {headlineText}
             {headlineText.length < fullHeadline.length && (
               <span className="animate-blink border-r-4 border-cyan-400 ml-1">&nbsp;</span>
@@ -66,21 +66,21 @@ export default function Hero() {
 
         {/* Minimal 2-Line Subtext */}
         <Reveal delay={200} direction="up" className="w-full flex justify-center">
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mt-6 sm:mt-8 md:mt-10">
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mt-4 sm:mt-6 md:mt-10 text-base md:text-lg">
             Kibozera engineers AI-driven automation systems that eliminate operational friction, streamline workflows, and scale business intelligence with precision architecture.
           </p>
         </Reveal>
 
         {/* Premium Conversion-Focused CTA Buttons */}
         <Reveal delay={350} direction="up" className="w-full flex justify-center">
-          <div className="flex flex-wrap justify-center gap-4 mt-2">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 mt-2 w-full px-4 sm:px-0">
             <Link href="/contact">
-              <button className="px-8 py-4 bg-gradient-to-r from-primary-container to-secondary-container text-white rounded-xl font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(45,91,255,0.4)] active:scale-95 transition-all cursor-pointer">
+              <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-primary-container to-secondary-container text-white rounded-xl font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(45,91,255,0.4)] active:scale-95 transition-all cursor-pointer text-sm md:text-base">
                 Request Architecture Consultation
               </button>
             </Link>
             <Link href="/services">
-              <button className="px-8 py-4 border border-white/10 hover:border-white/30 rounded-xl font-bold transition-all bg-white/5 backdrop-blur-sm hover:scale-105 active:scale-95 cursor-pointer">
+              <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border border-white/10 hover:border-white/30 rounded-xl font-bold transition-all bg-white/5 backdrop-blur-sm hover:scale-105 active:scale-95 cursor-pointer text-sm md:text-base">
                 View Automation Systems
               </button>
             </Link>

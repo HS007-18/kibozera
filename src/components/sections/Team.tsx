@@ -65,7 +65,7 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-function useInView(threshold = 0.25) {
+function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -114,51 +114,51 @@ function NetworkBackground({ color }: { color: string }) {
 
 // Individual founder section
 function FounderSection({ member, index }: { member: TeamMember; index: number }) {
-  const { ref, inView } = useInView(0.2);
+  const { ref, inView } = useInView(0.1);
   const isPhotoLeft = member.layout === "left";
 
-  const imageSlide = isPhotoLeft ? "-translate-x-20" : "translate-x-20";
-  const textSlide = isPhotoLeft ? "translate-x-20" : "-translate-x-20";
+  const imageSlide = isPhotoLeft ? "-translate-x-12 md:-translate-x-20" : "translate-x-12 md:translate-x-20";
+  const textSlide = isPhotoLeft ? "translate-x-12 md:translate-x-20" : "-translate-x-12 md:-translate-x-20";
 
   return (
     <div
       ref={ref}
-      className="relative min-h-[80vh] flex items-center py-20 overflow-hidden"
+      className="relative py-10 md:py-20 overflow-hidden"
     >
       {/* Ambient background glow */}
       <div
-        className="absolute rounded-full blur-[120px] pointer-events-none transition-opacity duration-1000"
+        className="absolute rounded-full blur-[80px] md:blur-[120px] pointer-events-none transition-opacity duration-1000"
         style={{
           background: member.glowColor,
-          width: "500px",
-          height: "500px",
+          width: "300px",
+          height: "300px",
           top: "50%",
           left: isPhotoLeft ? "10%" : "60%",
           transform: "translate(-50%, -50%)",
-          opacity: inView ? 1 : 0,
+          opacity: inView ? 0.6 : 0,
         }}
       />
 
       {/* Subtle grid */}
       <NetworkBackground color={member.accentColor} />
 
-      <div className="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
-        <div className={`flex flex-col ${isPhotoLeft ? "md:flex-row" : "md:flex-row-reverse"} justify-center gap-8 md:gap-16 items-center`}>
+      <div className="relative z-10 max-w-container-max mx-auto px-5 md:px-margin-desktop w-full">
+        <div className={`flex flex-col ${isPhotoLeft ? "md:flex-row" : "md:flex-row-reverse"} gap-6 md:gap-16 items-center`}>
 
           {/* Photo / Initials Side */}
           <div
-            className={`flex-shrink-0 w-full md:w-2/5 transition-all duration-1000 ease-out ${inView ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${imageSlide}`}`}
+            className={`flex-shrink-0 w-full md:w-2/5 transition-all duration-700 ease-out ${inView ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${imageSlide}`}`}
           >
             <div className="relative group flex justify-center">
               {/* Outer decorative ring */}
               <div
-                className="absolute -inset-4 rounded-2xl opacity-20 blur-md transition-opacity duration-500 group-hover:opacity-40"
+                className="absolute -inset-3 md:-inset-4 rounded-2xl opacity-20 blur-md transition-opacity duration-500 group-hover:opacity-40"
                 style={{ background: `linear-gradient(135deg, ${member.accentColor}, transparent)` }}
               />
 
               {/* Photo or initials block */}
               {member.photo ? (
-                <div className="relative w-72 md:w-80 h-[420px] rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all duration-500 shadow-2xl">
+                <div className="relative w-full max-w-[260px] md:w-72 h-[320px] md:h-[420px] rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all duration-500 shadow-2xl">
                   <img
                     src={member.photo}
                     alt={member.name}
@@ -176,7 +176,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
                 </div>
               ) : (
                 <div
-                  className="relative w-72 md:w-80 h-[420px] rounded-2xl border border-white/10 group-hover:border-white/25 transition-all duration-500 flex items-center justify-center shadow-2xl overflow-hidden"
+                  className="relative w-full max-w-[260px] md:w-72 h-[320px] md:h-[420px] rounded-2xl border border-white/10 group-hover:border-white/25 transition-all duration-500 flex items-center justify-center shadow-2xl overflow-hidden"
                   style={{ background: `linear-gradient(135deg, ${member.accentColor}10, #111317)` }}
                 >
                   {/* Decorative lines inside blank card */}
@@ -204,7 +204,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
               {/* Index label */}
               <div
-                className="absolute -bottom-4 -right-4 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-black border shadow-lg"
+                className="absolute -bottom-4 -right-2 md:-right-4 w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-lg md:text-xl font-black border shadow-lg"
                 style={{ background: "#050608", borderColor: `${member.accentColor}50`, color: member.accentColor }}
               >
                 0{index + 1}
@@ -214,10 +214,10 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
           {/* Info Side */}
           <div
-            className={"flex-1 transition-all duration-1000 ease-out delay-200 " + (inView ? "opacity-100 translate-x-0" : "opacity-0 " + textSlide)}
+            className={`flex-1 w-full transition-all duration-700 ease-out delay-150 ${inView ? "opacity-100 translate-x-0" : "opacity-0 " + textSlide}`}
           >
             {/* Glassmorphism info panel */}
-            <div className="relative rounded-2xl p-6 md:p-8 border border-white/8 overflow-hidden md:h-[420px]"
+            <div className="relative rounded-2xl p-5 md:p-8 border border-white/8 overflow-hidden md:h-[420px]"
               style={{ background: "rgba(255,255,255,0.02)", backdropFilter: "blur(20px)" }}>
 
               {/* Corner accent */}
@@ -226,15 +226,15 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
               <div className="absolute bottom-0 right-0 w-24 h-24 rounded-tl-[60px] opacity-8"
                 style={{ background: `radial-gradient(circle at bottom right, ${member.accentColor}, transparent)` }} />
 
-              <div className="relative z-10 h-full flex flex-col justify-between">
+              <div className="relative z-10 h-full flex flex-col justify-between gap-4">
                 <div>
                   {/* Role badge */}
                   <div
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3 border"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3 border max-w-full"
                     style={{ background: `${member.accentColor}12`, borderColor: `${member.accentColor}30`, color: member.accentColor }}
                   >
-                    <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: member.accentColor }} />
-                    {member.role}
+                    <span className="w-1 h-1 rounded-full animate-pulse flex-shrink-0" style={{ background: member.accentColor }} />
+                    <span className="truncate">{member.role}</span>
                   </div>
 
                   {/* Name */}
@@ -283,7 +283,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
                 </div>
 
                 {/* Contact buttons */}
-                <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-white/8">
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-white/8">
                   {member.linkedin && (
                     <a
                       href={member.linkedin}
@@ -327,24 +327,24 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
 export default function Team() {
   return (
-    <section className="relative bg-[#050608] overflow-hidden py-16">
+    <section className="relative bg-[#050608] overflow-hidden py-10 md:py-16">
       {/* Section header */}
-      <div className="max-w-container-max mx-auto px-margin-desktop text-center mb-20 relative z-10">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop text-center mb-10 md:mb-20 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           THE PEOPLE BEHIND KIBOZERA
         </div>
-        <h2 className="font-display-lg text-4xl md:text-5xl font-black text-white mb-4">
+        <h2 className="font-display-lg text-3xl md:text-5xl font-black text-white mb-4">
           Our Founding Team
         </h2>
         <div className="h-0.5 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
-        <p className="text-on-surface-variant max-w-2xl mx-auto text-base leading-relaxed">
+        <p className="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
           A team of visionary engineers, product strategists, and business leaders driving the future of enterprise AI automation.
         </p>
       </div>
 
-      {/* Connecting line between sections */}
-      <div className="absolute left-1/2 top-48 bottom-0 w-px bg-gradient-to-b from-primary/20 via-secondary/10 to-transparent pointer-events-none" />
+      {/* Connecting line — hidden on mobile */}
+      <div className="hidden md:block absolute left-1/2 top-48 bottom-0 w-px bg-gradient-to-b from-primary/20 via-secondary/10 to-transparent pointer-events-none" />
 
       {/* Founder sections */}
       {teamMembers.map((member, i) => (

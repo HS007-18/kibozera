@@ -15,7 +15,7 @@ export default function ServicesPage() {
       <GlowEffect />
       
       {/* Header Banner */}
-      <div className="max-w-container-max mx-auto px-margin-desktop text-center mt-12 mb-16 relative z-10">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop text-center mt-8 md:mt-12 mb-10 md:mb-16 relative z-10">
         <Reveal direction="up" delay={0}>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-stack-md">
             ENTERPRISE AUTOMATION

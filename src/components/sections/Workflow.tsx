@@ -32,9 +32,9 @@ const steps: Step[] = [
 export default function Workflow() {
   return (
     <section className="py-stack-lg bg-surface-container-low overflow-hidden">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop">
         <Reveal>
-          <div className="flex justify-between items-end mb-16">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 md:mb-16 gap-2">
             <div>
               <h2 className="font-headline-md text-headline-md">The Path To Intelligence</h2>
               <p className="text-on-surface-variant mt-2 text-sm">A structured approach to digital transformation.</p>

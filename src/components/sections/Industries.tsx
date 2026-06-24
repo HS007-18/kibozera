@@ -42,7 +42,7 @@ const industries: Industry[] = [
 export default function Industries() {
   return (
     <section className="py-stack-lg bg-surface-container-lowest">
-      <div className="max-w-container-max mx-auto px-margin-desktop">
+      <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop">
         <Reveal>
           <h2 className="font-headline-md text-headline-md mb-stack-lg text-center text-white">
             Tailored For Every Sector
