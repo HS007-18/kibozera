@@ -31,7 +31,7 @@ export default function Hero() {
           src="/kz.png"
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-center opacity-10"
+          className="w-full h-full object-cover object-center opacity-5"
         />
         {/* Dark gradient overlays to keep text readable */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#050608]/80 via-[#050608]/60 to-[#050608]/90" />
