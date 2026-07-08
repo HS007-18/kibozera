@@ -24,7 +24,7 @@ const techItems: TechItem[] = [
   // Infrastructure
   { name: "PostgreSQL",   icon: "database",        desc: "Relational DB",category: "Infrastructure" },
   { name: "Pinecone",     icon: "grain",           desc: "Vector Store",  category: "Infrastructure" },
-  { name: "AWS / GCP",    icon: "cloud",           desc: "Cloud",         category: "Infrastructure" },
+  { name: "AWS / GCP",    icon: "cloud",           desc: "Cloud Hosting", category: "Infrastructure" },
   { name: "Docker",       icon: "deployed_code",   desc: "Containers",    category: "Infrastructure" },
 ];
 
@@ -32,171 +32,128 @@ const categories = [
   {
     label: "Foundation Models",
     icon: "neurology",
-    gradient: "from-[#b8c3ff]/20 to-[#b8c3ff]/0",
-    glow: "rgba(184,195,255,0.15)",
     accent: "#b8c3ff",
-    border: "rgba(184,195,255,0.18)",
-    tag: "rgba(184,195,255,0.08)",
+    border: "rgba(184,195,255,0.2)",
+    bg: "rgba(184,195,255,0.03)",
   },
   {
     label: "Automation Stack",
     icon: "settings_suggest",
-    gradient: "from-[#d0bcff]/20 to-[#d0bcff]/0",
-    glow: "rgba(208,188,255,0.15)",
     accent: "#d0bcff",
-    border: "rgba(208,188,255,0.18)",
-    tag: "rgba(208,188,255,0.08)",
+    border: "rgba(208,188,255,0.2)",
+    bg: "rgba(208,188,255,0.03)",
   },
   {
     label: "Infrastructure",
     icon: "dns",
-    gradient: "from-[#ffb59b]/20 to-[#ffb59b]/0",
-    glow: "rgba(255,181,155,0.15)",
     accent: "#ffb59b",
-    border: "rgba(255,181,155,0.18)",
-    tag: "rgba(255,181,155,0.08)",
+    border: "rgba(255,181,155,0.2)",
+    bg: "rgba(255,181,155,0.03)",
   },
 ] as const;
 
-function TechCard({ item, accent, border }: { item: TechItem; accent: string; border: string }) {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative rounded-2xl p-4 flex flex-col items-center gap-3 cursor-default transition-all duration-300 group overflow-hidden"
-      style={{
-        background: hovered ? `${accent}10` : "rgba(255,255,255,0.02)",
-        border: `1px solid ${hovered ? accent + "50" : border}`,
-        transform: hovered ? "translateY(-4px) scale(1.03)" : "translateY(0) scale(1)",
-        boxShadow: hovered ? `0 12px 32px -8px ${accent}30, 0 0 0 1px ${accent}20` : "none",
-      }}
-    >
-      {/* Glow behind icon */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-10 rounded-full blur-2xl pointer-events-none transition-opacity duration-300"
-        style={{ background: accent, opacity: hovered ? 0.15 : 0 }}
-      />
-
-      {/* Icon */}
-      <div
-        className="relative w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
-        style={{
-          background: hovered ? `${accent}20` : `${accent}0c`,
-          border: `1px solid ${hovered ? accent + "40" : accent + "20"}`,
-          boxShadow: hovered ? `0 0 16px ${accent}30` : "none",
-        }}
-      >
-        <span
-          className="material-symbols-outlined text-2xl transition-all duration-300"
-          style={{ color: accent, opacity: hovered ? 1 : 0.7 }}
-        >
-          {item.icon}
-        </span>
-      </div>
-
-      {/* Name */}
-      <div className="text-center">
-        <p className="text-white font-bold text-sm leading-tight">{item.name}</p>
-        <p className="text-[11px] mt-0.5 font-medium" style={{ color: `${accent}aa` }}>{item.desc}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function TechShowcase() {
+  const [activeTab, setActiveTab] = useState<typeof categories[number]["label"]>("Foundation Models");
+
+  const currentCategory = categories.find((c) => c.label === activeTab)!;
+  const filteredItems = techItems.filter((item) => item.category === activeTab);
+
   return (
     <section className="py-16 md:py-24 relative overflow-hidden">
-      {/* Background blobs */}
-      <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full blur-[120px] pointer-events-none opacity-10"
-        style={{ background: "radial-gradient(circle, #b8c3ff, transparent)" }} />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-[120px] pointer-events-none opacity-10"
-        style={{ background: "radial-gradient(circle, #d0bcff, transparent)" }} />
+      {/* Subtle backglow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[250px] rounded-full blur-[120px] pointer-events-none opacity-20 transition-all duration-700"
+        style={{
+          background: `radial-gradient(circle, ${currentCategory.accent}, transparent)`,
+        }}
+      />
 
       <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop relative z-10">
-
         {/* Header */}
         <Reveal>
-          <div className="text-center mb-14">
+          <div className="text-center mb-10 md:mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-4">
               TECH STACK
             </div>
-            <h2 className="font-headline-md text-headline-md text-white mb-3">Built With The Best</h2>
+            <h2 className="font-headline-md text-headline-md text-white mb-3">Our Technology Stack</h2>
             <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4" />
-            <p className="text-on-surface-variant text-sm max-w-lg mx-auto leading-relaxed">
-              State-of-the-art tools and frameworks we use to engineer world-class AI systems.
+            <p className="text-on-surface-variant text-sm max-w-md mx-auto leading-relaxed">
+              We build systems using industry-leading AI models, automation workflows, and cloud infrastructure.
             </p>
           </div>
         </Reveal>
 
-        {/* Category blocks */}
-        <div className="flex flex-col gap-10">
-          {categories.map((cat, catIdx) => {
-            const items = techItems.filter((t) => t.category === cat.label);
-            return (
-              <Reveal key={cat.label} delay={catIdx * 120}>
-                <div
-                  className="relative rounded-3xl p-6 md:p-8 overflow-hidden"
+        {/* Tab Selectors */}
+        <Reveal delay={100}>
+          <div className="flex flex-wrap justify-center gap-2 mb-10 max-w-2xl mx-auto">
+            {categories.map((cat) => {
+              const isActive = cat.label === activeTab;
+              return (
+                <button
+                  key={cat.label}
+                  onClick={() => setActiveTab(cat.label)}
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-bold transition-all duration-300 cursor-pointer"
                   style={{
-                    background: `linear-gradient(135deg, ${cat.tag}, rgba(255,255,255,0.01))`,
-                    border: `1px solid ${cat.border}`,
+                    color: isActive ? "#ffffff" : "rgba(255, 255, 255, 0.5)",
+                    borderColor: isActive ? cat.accent : "rgba(255, 255, 255, 0.08)",
+                    background: isActive ? `${cat.accent}15` : "rgba(255, 255, 255, 0.02)",
+                    boxShadow: isActive ? `0 0 20px -5px ${cat.accent}30` : "none",
                   }}
                 >
-                  {/* Subtle top glow bar */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-px"
-                    style={{ background: `linear-gradient(90deg, transparent, ${cat.accent}40, transparent)` }}
-                  />
+                  <span
+                    className="material-symbols-outlined text-base transition-colors duration-300"
+                    style={{ color: isActive ? cat.accent : "rgba(255, 255, 255, 0.4)" }}
+                  >
+                    {cat.icon}
+                  </span>
+                  <span>{cat.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </Reveal>
 
-                  {/* Inner corner glow */}
-                  <div
-                    className="absolute -top-10 -left-10 w-40 h-40 rounded-full blur-3xl pointer-events-none"
-                    style={{ background: cat.accent, opacity: 0.06 }}
-                  />
+        {/* Grid of Tools (Animated dynamically on tab change) */}
+        <div className="min-h-[120px] transition-all duration-500">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {filteredItems.map((item, idx) => (
+              <div
+                key={item.name}
+                className="group relative rounded-2xl p-4 flex items-center gap-4 border transition-all duration-300 bg-white/[0.01] hover:bg-white/[0.03] cursor-default"
+                style={{
+                  borderColor: "rgba(255, 255, 255, 0.06)",
+                }}
+              >
+                {/* Accent glow line inside left edge */}
+                <div
+                  className="absolute left-0 top-3 bottom-3 w-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
+                  style={{ background: currentCategory.accent }}
+                />
 
-                  {/* Category header */}
-                  <div className="flex items-center gap-3 mb-6">
-                    <div
-                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: `${cat.accent}15`, border: `1px solid ${cat.accent}30` }}
-                    >
-                      <span className="material-symbols-outlined text-lg" style={{ color: cat.accent }}>
-                        {cat.icon}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-sm text-white tracking-wide">{cat.label}</h3>
-                      <p className="text-[11px] text-on-surface-variant/50 mt-0.5">
-                        {catIdx === 0 && "Large language model capabilities"}
-                        {catIdx === 1 && "Workflow & application layer"}
-                        {catIdx === 2 && "Data, cloud & deployment"}
-                      </p>
-                    </div>
-
-                    {/* Right: item count pill */}
-                    <div className="ml-auto">
-                      <span
-                        className="text-[10px] font-bold px-2.5 py-1 rounded-full border"
-                        style={{ color: cat.accent, borderColor: `${cat.accent}30`, background: `${cat.accent}08` }}
-                      >
-                        {items.length} tools
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Tech cards grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {items.map((item, idx) => (
-                      <Reveal key={item.name} delay={catIdx * 100 + idx * 60} direction="up">
-                        <TechCard item={item} accent={cat.accent} border={cat.border} />
-                      </Reveal>
-                    ))}
-                  </div>
+                {/* Icon wrapper */}
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                  style={{
+                    background: `${currentCategory.accent}0c`,
+                    border: `1px solid ${currentCategory.accent}15`,
+                  }}
+                >
+                  <span
+                    className="material-symbols-outlined text-xl transition-transform duration-500 group-hover:scale-110"
+                    style={{ color: currentCategory.accent }}
+                  >
+                    {item.icon}
+                  </span>
                 </div>
-              </Reveal>
-            );
-          })}
+
+                {/* Info Text */}
+                <div className="flex flex-col">
+                  <span className="text-white text-sm font-bold tracking-wide leading-tight">{item.name}</span>
+                  <span className="text-[11px] text-on-surface-variant/60 mt-0.5">{item.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
