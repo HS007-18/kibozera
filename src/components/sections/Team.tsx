@@ -117,8 +117,13 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
   const { ref, inView } = useInView(0.1);
   const isPhotoLeft = member.layout === "left";
 
-  const imageSlide = isPhotoLeft ? "-translate-x-12 md:-translate-x-20" : "translate-x-12 md:translate-x-20";
-  const textSlide = isPhotoLeft ? "translate-x-12 md:translate-x-20" : "-translate-x-12 md:-translate-x-20";
+  // On mobile: slide from below. On desktop: slide from sides.
+  const imageSlide = isPhotoLeft
+    ? "translate-y-8 md:translate-y-0 md:-translate-x-20"
+    : "translate-y-8 md:translate-y-0 md:translate-x-20";
+  const textSlide = isPhotoLeft
+    ? "translate-y-8 md:translate-y-0 md:translate-x-20"
+    : "translate-y-8 md:translate-y-0 md:-translate-x-20";
 
   return (
     <div
@@ -158,7 +163,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
 
               {/* Photo or initials block */}
               {member.photo ? (
-                <div className="relative w-full max-w-[260px] md:w-72 h-[320px] md:h-[420px] rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all duration-500 shadow-2xl">
+                <div className="relative w-full max-w-[220px] sm:max-w-[260px] md:w-72 h-[280px] sm:h-[320px] md:h-[420px] rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all duration-500 shadow-2xl">
                   <img
                     src={member.photo}
                     alt={member.name}
@@ -176,7 +181,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
                 </div>
               ) : (
                 <div
-                  className="relative w-full max-w-[260px] md:w-72 h-[320px] md:h-[420px] rounded-2xl border border-white/10 group-hover:border-white/25 transition-all duration-500 flex items-center justify-center shadow-2xl overflow-hidden"
+                  className="relative w-full max-w-[220px] sm:max-w-[260px] md:w-72 h-[280px] sm:h-[320px] md:h-[420px] rounded-2xl border border-white/10 group-hover:border-white/25 transition-all duration-500 flex items-center justify-center shadow-2xl overflow-hidden"
                   style={{ background: `linear-gradient(135deg, ${member.accentColor}10, #111317)` }}
                 >
                   {/* Decorative lines inside blank card */}
@@ -217,7 +222,7 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
             className={`flex-1 w-full transition-all duration-700 ease-out delay-150 ${inView ? "opacity-100 translate-x-0" : "opacity-0 " + textSlide}`}
           >
             {/* Glassmorphism info panel */}
-            <div className="relative rounded-2xl p-5 md:p-8 border border-white/8 overflow-hidden md:h-[420px]"
+            <div className="relative rounded-2xl p-5 md:p-8 border border-white/8 overflow-hidden min-h-[320px] md:min-h-[420px] h-auto"
               style={{ background: "rgba(255,255,255,0.02)", backdropFilter: "blur(20px)" }}>
 
               {/* Corner accent */}

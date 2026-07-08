@@ -87,8 +87,8 @@
 }
 
 @utility text-headline-md {
-  font-size: 32px;
-  line-height: 44px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.35;
   letter-spacing: 0.02em;
   word-spacing: 0.08em;
   font-weight: 500;
@@ -96,8 +96,8 @@
 }
 
 @utility text-display-lg-mobile {
-  font-size: 40px;
-  line-height: 52px;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.25;
   letter-spacing: 0.02em;
   word-spacing: 0.1em;
   font-weight: 600;
@@ -113,8 +113,8 @@
 }
 
 @utility text-display-lg {
-  font-size: 64px;
-  line-height: 76px;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.2;
   letter-spacing: 0.03em;
   word-spacing: 0.12em;
   font-weight: 600;
@@ -140,6 +140,16 @@ body {
   color: var(--foreground);
   overflow-x: hidden;
   word-spacing: 0.06em;
+}
+
+/* Smooth scroll-margin for anchor links */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Prevent content overflow on very small screens */
+* {
+  min-width: 0;
 }
 
 .glass-card {

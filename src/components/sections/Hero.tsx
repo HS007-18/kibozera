@@ -1,27 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import GlowEffect from "../ui/GlowEffect";
 import ParticleGrid from "../ui/ParticleGrid";
 import Reveal from "../ui/Reveal";
 
-export default function Hero() {
-  const [headlineText, setHeadlineText] = useState("");
-  const fullHeadline = "We Listen Before We Automate It";
+const FULL_HEADLINE = "We Listen Before We Automate It";
 
-  // Typing effect for the main headline
+export default function Hero() {
+  // mounted: false on server, true after hydration completes
+  const [mounted, setMounted] = useState(false);
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setHeadlineText(fullHeadline.slice(0, index + 1));
-      index++;
-      if (index >= fullHeadline.length) {
-        clearInterval(interval);
-      }
-    }, 70);
-    return () => clearInterval(interval);
+    // Mark as mounted — this runs only on the client after hydration
+    setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    // Start typewriter after a short delay
+    const startTimeout = setTimeout(() => {
+      let idx = 0;
+      const interval = setInterval(() => {
+        idx++;
+        setDisplayed(FULL_HEADLINE.slice(0, idx));
+        if (idx >= FULL_HEADLINE.length) {
+          clearInterval(interval);
+          setDone(true);
+        }
+      }, 65);
+      return () => clearInterval(interval);
+    }, 300);
+    return () => clearTimeout(startTimeout);
+  }, [mounted]);
 
   return (
     <section className="relative min-h-[90vh] md:min-h-[95vh] flex items-center overflow-hidden py-16 md:py-24 bg-[#050608]">
@@ -31,47 +45,59 @@ export default function Hero() {
           src="/kz.png"
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
           className="w-full h-full object-cover object-center opacity-[0.12]"
         />
-        {/* Dark gradient overlays to keep text readable */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#050608]/80 via-[#050608]/60 to-[#050608]/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050608]/70 via-transparent to-[#050608]/70" />
       </div>
 
-      {/* Dynamic Background Grids and glows */}
       <GlowEffect />
       <ParticleGrid />
-      
+
       <div className="max-w-4xl mx-auto px-5 md:px-margin-desktop flex flex-col items-center justify-center gap-4 md:gap-6 w-full relative z-10 text-center">
-        
+
         <Reveal delay={0} direction="up" className="flex justify-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-2">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
             </span>
             ENTERPRISE AI ORCHESTRATION
           </div>
         </Reveal>
-        
-        {/* Main Large-scale Typewritten Headline */}
-        <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center w-full my-4 md:my-6">
-          <h1 className="font-display-lg text-3xl sm:text-5xl md:text-[62px] font-bold leading-[1.15] text-white uppercase word-spacing-wide">
-            {headlineText}
-            {headlineText.length < fullHeadline.length && (
-              <span className="animate-blink border-r-4 border-cyan-400 ml-1">&nbsp;</span>
-            )}
+
+        {/* H1 — SEO: full text always in DOM via sr-only. Visual: character-by-character reveal */}
+        <div className="min-h-[100px] sm:min-h-[130px] md:min-h-[150px] flex items-center justify-center w-full my-4 md:my-6">
+          <h1 className="font-display-lg text-3xl sm:text-5xl md:text-[62px] font-bold leading-[1.15] text-white uppercase">
+
+            {/* Always in DOM for SEO — screen readers use this */}
+            <span className="sr-only">{FULL_HEADLINE}</span>
+
+            {/*
+              Visual typewriter layer.
+              Before mount: renders nothing (matches server output — no hydration error).
+              After mount: types character by character.
+            */}
+            <span aria-hidden="true">
+              {mounted ? (
+                <>
+                  {displayed}
+                  {!done && (
+                    <span className="inline-block animate-blink border-r-4 border-cyan-400 ml-0.5 h-[0.85em] align-middle" />
+                  )}
+                </>
+              ) : null}
+            </span>
           </h1>
         </div>
 
-        {/* Minimal 2-Line Subtext */}
         <Reveal delay={200} direction="up" className="w-full flex justify-center">
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mt-4 sm:mt-6 md:mt-10 text-base md:text-lg">
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mt-2 sm:mt-4 text-base md:text-lg">
             Kibozera engineers AI-driven automation systems that eliminate operational friction, streamline workflows, and scale business intelligence with precision architecture.
           </p>
         </Reveal>
 
-        {/* Premium Conversion-Focused CTA Buttons */}
         <Reveal delay={350} direction="up" className="w-full flex justify-center">
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 mt-2 w-full px-4 sm:px-0">
             <Link href="/contact">
@@ -87,7 +113,6 @@ export default function Hero() {
           </div>
         </Reveal>
 
-        {/* Trust Badges */}
         <Reveal delay={500} direction="up" className="w-full flex justify-center">
           <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs tracking-wider uppercase text-on-surface-variant/60 font-label-sm w-full">
             <div className="flex items-center gap-2">

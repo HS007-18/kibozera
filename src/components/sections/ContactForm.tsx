@@ -90,6 +90,7 @@ export default function ContactForm() {
                 id="name"
                 name="name"
                 required
+                autoComplete="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="John Doe"
@@ -105,6 +106,7 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 required
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="john@company.com"
@@ -122,6 +124,7 @@ export default function ContactForm() {
                 type="text"
                 id="company"
                 name="company"
+                autoComplete="organization"
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Acme Corp"
@@ -172,11 +175,11 @@ export default function ContactForm() {
             </div>
           )}
 
-          <div className="flex items-center justify-between pt-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4">
             <button
               type="submit"
               disabled={status.type === "loading"}
-              className="px-8 py-3.5 bg-primary text-on-primary-fixed font-bold rounded-xl hover:scale-105 active:scale-95 disabled:scale-100 disabled:opacity-50 transition-all shadow-lg shadow-primary/10 flex items-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 bg-primary text-on-primary-fixed font-bold rounded-xl hover:scale-105 active:scale-95 disabled:scale-100 disabled:opacity-50 transition-all shadow-lg shadow-primary/10 flex items-center justify-center gap-2 cursor-pointer"
             >
               {status.type === "loading" ? (
                 <>

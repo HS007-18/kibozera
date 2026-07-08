@@ -1,37 +1,37 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kibozera.vercel.app";
+  const baseUrl = "https://www.kibozera.com";
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: "2025-07-01",
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: "2025-07-01",
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services`,
-      lastModified: new Date(),
+      lastModified: "2025-07-01",
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/team`,
-      lastModified: new Date(),
+      lastModified: "2025-07-01",
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: "2025-07-01",
       changeFrequency: "yearly",
-      priority: 0.5,
+      priority: 0.6,
     },
   ];
 }
