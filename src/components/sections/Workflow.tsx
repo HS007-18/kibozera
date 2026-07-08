@@ -15,7 +15,7 @@ const steps: Step[] = [
     tag: "DISCOVERY",
     title: "Listen & Analyze",
     description:
-      "We begin by deeply understanding your operations — mapping every process, identifying pain points, and uncovering the highest-impact automation opportunities before writing a single line of code.",
+      "We study your workflows, map every manual process, and pinpoint the best areas to automate.",
   },
   {
     num: 2,
@@ -23,7 +23,7 @@ const steps: Step[] = [
     tag: "ARCHITECTURE",
     title: "Design",
     description:
-      "Our engineers architect a bespoke AI system blueprint — selecting the right models, frameworks, and integration patterns that fit your existing tech stack and scale with your growth.",
+      "We create a clear blueprint of the AI systems, models, and integrations needed for your stack.",
   },
   {
     num: 3,
@@ -31,7 +31,7 @@ const steps: Step[] = [
     tag: "ENGINEERING",
     title: "Develop",
     description:
-      "Agile, iterative engineering of AI agents, automation pipelines, and intelligent workflows. You receive progress updates at every sprint with working prototypes for validation.",
+      "We build your custom AI agents and automation pipelines with regular prototype checks.",
   },
   {
     num: 4,
@@ -39,7 +39,7 @@ const steps: Step[] = [
     tag: "DEPLOYMENT",
     title: "Deploy & Monitor",
     description:
-      "Secure production deployment with zero-downtime rollouts. Continuous performance monitoring, model drift detection, and proactive maintenance ensure peak efficiency long-term.",
+      "We roll out secure systems and monitor performance to ensure long-term efficiency.",
   },
 ];
 
