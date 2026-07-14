@@ -118,7 +118,7 @@ export default function TeamPage() {
       isPartOf: { "@id": "https://www.kibozera.com/#website" },
       about: { "@id": "https://www.kibozera.com/#organization" },
       inLanguage: "en-IN",
-      dateModified: new Date().toISOString(),
+      dateModified: "2026-07-14T20:00:00Z",
     },
     ...jsonLd,
   ];

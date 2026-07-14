@@ -287,7 +287,7 @@ export default function CoreCapabilities({ limit, showTitle = true }: CoreCapabi
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm mb-4">
                 WHAT WE BUILD
               </div>
-              <h2 className="font-headline-md text-headline-md mb-4 text-white">Core Capabilities</h2>
+              <h2 className="font-headline-md text-headline-md mb-4 text-white">Kibozera&apos;s Core AI Capabilities &amp; Solutions</h2>
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-4" />
               <p className="text-on-surface-variant text-sm max-w-xl mx-auto leading-relaxed">
                 Eleven specialised disciplines. One mission: transform how your business operates.

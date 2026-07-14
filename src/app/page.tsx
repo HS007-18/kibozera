@@ -1,5 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import CoreCapabilities from "@/components/sections/CoreCapabilities";
+import Workflow from "@/components/sections/Workflow";
+import Industries from "@/components/sections/Industries";
 import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 import type { Metadata } from "next";
@@ -270,7 +272,7 @@ export default function Home() {
       },
       inLanguage: "en-IN",
       datePublished: "2024-01-01",
-      dateModified: new Date().toISOString(),
+      dateModified: "2026-07-14T20:00:00Z",
     },
 
     // ── 5. FAQPage (rich result in SERP) ─────────────────────────────────
@@ -377,6 +379,8 @@ export default function Home() {
       />
       <Hero />
       <CoreCapabilities limit={3} />
+      <Workflow />
+      <Industries />
       <FAQ />
       <CTA />
     </>

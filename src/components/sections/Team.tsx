@@ -344,7 +344,7 @@ export default function Team() {
           THE PEOPLE BEHIND KIBOZERA
         </div>
         <h1 className="font-display-lg text-3xl md:text-5xl font-black text-white mb-4">
-          Our Founding Team
+          Kibozera Founding Team &amp; Leadership
         </h1>
         <div className="h-0.5 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
         <p className="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base leading-relaxed">

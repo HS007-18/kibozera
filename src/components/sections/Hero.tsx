@@ -7,7 +7,7 @@ import GlowEffect from "../ui/GlowEffect";
 import ParticleGrid from "../ui/ParticleGrid";
 import Reveal from "../ui/Reveal";
 
-const FULL_HEADLINE = "We Listen Before We Automate It";
+const FULL_HEADLINE = "We Listen Before We Automate";
 
 export default function Hero() {
   const [displayed, setDisplayed] = useState(FULL_HEADLINE);
@@ -67,29 +67,24 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
             </span>
-            ENTERPRISE AI ORCHESTRATION
+            KIBOZERA AI &amp; AUTOMATION
           </div>
         </Reveal>
 
         {/* H1 — SSR-safe: full text is always in the DOM for Google crawling.
-            Typewriter runs client-side via CSS opacity trick, never hides server content. */}
+            Typewriter runs client-side, never hides branded server content. */}
         <div className="min-h-[100px] sm:min-h-[130px] md:min-h-[150px] flex items-center justify-center w-full my-4 md:my-6">
           <h1 className="font-display-lg text-3xl sm:text-5xl md:text-[62px] font-bold leading-[1.15] text-white uppercase">
-            {isTyping ? (
-              <>
-                <span aria-hidden="true">
-                  {displayed}
-                  {!done && (
-                    <span className="inline-block animate-blink border-r-4 border-cyan-400 ml-0.5 h-[0.85em] align-middle" />
-                  )}
-                </span>
-                {/* Always keep full text visible to crawlers */}
-                <span className="sr-only">{FULL_HEADLINE}</span>
-              </>
-            ) : (
-              /* Before/after typing: show full text — fully SSR and crawler-visible */
-              <>{displayed || FULL_HEADLINE}</>
-            )}
+            {/* Semantic text for crawlers and screen readers */}
+            <span className="sr-only">Kibozera — Enterprise AI &amp; Workflow Automation Company India</span>
+            
+            {/* Visual typewriter for human visitors */}
+            <span aria-hidden="true">
+              {displayed || FULL_HEADLINE}
+              {!done && isTyping && (
+                <span className="inline-block animate-blink border-r-4 border-cyan-400 ml-0.5 h-[0.85em] align-middle" />
+              )}
+            </span>
           </h1>
         </div>
 

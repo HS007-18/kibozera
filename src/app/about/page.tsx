@@ -145,7 +145,7 @@ export default function AboutPage() {
       isPartOf: { "@id": "https://www.kibozera.com/#website" },
       about: { "@id": "https://www.kibozera.com/#organization" },
       inLanguage: "en-IN",
-      dateModified: new Date().toISOString(),
+      dateModified: "2026-07-14T20:00:00Z",
     },
     jsonLd,
   ];
@@ -169,7 +169,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal direction="up" delay={150}>
             <h1 className="font-display-lg text-display-lg-mobile md:text-5xl font-bold mb-stack-md leading-tight text-white">
-              Pioneering Business Intelligence
+              About Kibozera — Pioneering Business Intelligence
             </h1>
           </Reveal>
           <Reveal direction="up" delay={300}>

@@ -116,7 +116,7 @@ export default function ContactPage() {
       isPartOf: { "@id": "https://www.kibozera.com/#website" },
       about: { "@id": "https://www.kibozera.com/#organization" },
       inLanguage: "en-IN",
-      dateModified: new Date().toISOString(),
+      dateModified: "2026-07-14T20:00:00Z",
     },
     jsonLd,
   ];
@@ -140,7 +140,7 @@ export default function ContactPage() {
                   GET IN TOUCH
                 </div>
                 <h1 className="font-display-lg text-display-lg-mobile md:text-5xl font-bold mb-stack-md leading-tight text-white">
-                  Start Your AI Transformation
+                  Contact Kibozera | Start Your AI Transformation
                 </h1>
                 <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
                   Ready to automate manual tasks and scale your business with Kibozera&apos;s AI automation?
