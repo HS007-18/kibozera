@@ -10,6 +10,16 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
+    question: "What is Kibozera?",
+    answer:
+      "Kibozera is an AI automation company based in Tiruppur, Tamil Nadu, India. We build AI agents, workflow automation systems, robotic process automation (RPA), custom AI models, AI chatbots, data intelligence platforms, and cloud AI infrastructure — helping businesses in India and worldwide reduce manual work, cut operational costs, and scale faster.",
+  },
+  {
+    question: "What services does Kibozera offer?",
+    answer:
+      "Kibozera offers 11 AI automation services: (1) AI Automation, (2) AI Agents, (3) Business Process Automation / RPA, (4) Custom AI Solutions, (5) Data Intelligence, (6) AI Integration, (7) UI/UX & Web Design, (8) AI Chatbots & Virtual Assistants, (9) AI-Powered Marketing Automation, (10) Computer Vision Solutions, and (11) Cloud AI Infrastructure on AWS, GCP, or Azure.",
+  },
+  {
     question: "What is AI automation and how does it help my business?",
     answer:
       "AI automation uses artificial intelligence to handle repetitive, rule-based, and complex tasks that previously required human effort — from data entry and document processing to customer service and decision-making. For your business, this means reduced operational costs, faster execution times, fewer errors, and the ability to scale without proportionally increasing headcount.",

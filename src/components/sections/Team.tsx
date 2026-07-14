@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface TeamMember {
   name: string;
@@ -164,10 +165,13 @@ function FounderSection({ member, index }: { member: TeamMember; index: number }
               {/* Photo or initials block */}
               {member.photo ? (
                 <div className="relative w-full max-w-[220px] sm:max-w-[260px] md:w-72 h-[280px] sm:h-[320px] md:h-[420px] rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all duration-500 shadow-2xl">
-                  <img
+                  <Image
                     src={member.photo}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    alt={`${member.name} — ${member.role} at Kibozera`}
+                    fill
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 220px, (max-width: 768px) 260px, 288px"
+                    loading="lazy"
                   />
                   {/* Photo overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050608]/70 via-transparent to-transparent" />
@@ -339,9 +343,9 @@ export default function Team() {
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           THE PEOPLE BEHIND KIBOZERA
         </div>
-        <h2 className="font-display-lg text-3xl md:text-5xl font-black text-white mb-4">
+        <h1 className="font-display-lg text-3xl md:text-5xl font-black text-white mb-4">
           Our Founding Team
-        </h2>
+        </h1>
         <div className="h-0.5 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6" />
         <p className="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
           A team of visionary engineers, product strategists, and business leaders driving the future of enterprise AI automation.

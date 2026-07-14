@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -7,26 +8,26 @@ export default function Footer() {
     {
       label: "Services",
       links: [
-        { name: "AI Automation", href: "/services" },
-        { name: "AI Agents", href: "/services" },
-        { name: "Business Process Automation", href: "/services" },
-        { name: "Custom AI Solutions", href: "/services" },
-        { name: "UI/UX & Web Design", href: "/services" },
+        { name: "AI Automation", href: "/services#ai-automation" },
+        { name: "AI Agents", href: "/services#ai-agents" },
+        { name: "Business Process Automation", href: "/services#business-process-automation" },
+        { name: "Custom AI Solutions", href: "/services#custom-ai-solutions" },
+        { name: "UI/UX & Web Design", href: "/services#uiux-web-design" },
       ],
     },
     {
       label: "Company",
       links: [
-        { name: "About", href: "/about" },
-        { name: "Team", href: "/team" },
-        { name: "Contact", href: "/contact" },
+        { name: "About Kibozera", href: "/about" },
+        { name: "Our Team", href: "/team" },
+        { name: "Contact Us", href: "/contact" },
       ],
     },
   ];
 
   const socials = [
     {
-      label: "LinkedIn",
+      label: "Kibozera on LinkedIn",
       href: "https://www.linkedin.com/company/kibozera/",
       icon: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -35,7 +36,7 @@ export default function Footer() {
       ),
     },
     {
-      label: "Instagram",
+      label: "Kibozera on Instagram",
       href: "https://www.instagram.com/kibo_zera?igsh=MTFqY3l0MnZoNHQ2eg==",
       icon: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -44,29 +45,34 @@ export default function Footer() {
       ),
     },
     {
-      label: "Email",
+      label: "Email Kibozera",
       href: "mailto:kibozera.services@gmail.com",
-      icon: <span className="material-symbols-outlined text-base">mail</span>,
+      icon: <span className="material-symbols-outlined text-base" aria-hidden="true">mail</span>,
     },
   ];
 
   return (
-    <footer className="w-full bg-surface-container-lowest border-t border-white/5 mt-auto">
+    <footer className="w-full bg-surface-container-lowest border-t border-white/5 mt-auto" aria-label="Kibozera site footer">
       <div className="max-w-container-max mx-auto px-5 md:px-margin-desktop py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand col */}
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <img
+              <Image
                 src="/kz.png"
                 alt="Kibozera Logo"
+                width={32}
+                height={32}
                 className="h-8 w-8 object-contain rounded-md border border-white/10"
               />
               <span className="text-headline-md font-headline-md font-bold text-primary">Kibozera</span>
             </div>
-            <p className="text-on-surface-variant text-sm mb-6 max-w-xs leading-relaxed">
-              Pioneering the next era of business intelligence through sophisticated AI automation and precision engineering.
+            <p className="text-on-surface-variant text-sm mb-3 max-w-xs leading-relaxed">
+              Kibozera — India&apos;s AI automation company. We engineer intelligent AI agents, workflow automation, RPA, and custom AI solutions that help businesses scale faster.
+            </p>
+            <p className="text-on-surface-variant/50 text-xs mb-6">
+              📍 Tiruppur, Tamil Nadu, India &nbsp;|&nbsp; Serving clients worldwide
             </p>
 
             {/* Socials */}
@@ -89,7 +95,7 @@ export default function Footer() {
           {/* Nav groups */}
           {navGroups.map((group) => (
             <div key={group.label}>
-              <h5 className="font-bold mb-5 text-white text-sm tracking-wide">{group.label}</h5>
+              <h3 className="font-bold mb-5 text-white text-sm tracking-wide">{group.label}</h3>
               <ul className="space-y-3">
                 {group.links.map((link) => (
                   <li key={link.name}>
@@ -109,10 +115,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 md:mt-14 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-on-surface-variant text-xs opacity-50 text-center sm:text-left">
-            © {currentYear} Kibozera AI. Precision. Intelligence. Power.
+            © {currentYear} Kibozera AI Automation. Tiruppur, Tamil Nadu, India. All rights reserved.
           </p>
           <p className="text-on-surface-variant text-xs opacity-40">
-            AI Automation · Tamil Nadu, India
+            AI Automation · AI Agents · RPA · Custom AI Solutions
           </p>
         </div>
       </div>

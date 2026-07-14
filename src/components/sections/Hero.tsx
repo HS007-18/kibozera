@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import GlowEffect from "../ui/GlowEffect";
 import ParticleGrid from "../ui/ParticleGrid";
@@ -9,19 +10,16 @@ import Reveal from "../ui/Reveal";
 const FULL_HEADLINE = "We Listen Before We Automate It";
 
 export default function Hero() {
-  // mounted: false on server, true after hydration completes
-  const [mounted, setMounted] = useState(false);
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
+  const [displayed, setDisplayed] = useState(FULL_HEADLINE);
+  const [isTyping, setIsTyping] = useState(false);
+  const [done, setDone] = useState(true);
 
   useEffect(() => {
-    // Mark as mounted — this runs only on the client after hydration
-    setMounted(true);
-  }, []);
+    // Start typewriter after hydration — re-animate from empty to full
+    setDisplayed("");
+    setDone(false);
+    setIsTyping(true);
 
-  useEffect(() => {
-    if (!mounted) return;
-    // Start typewriter after a short delay
     const startTimeout = setTimeout(() => {
       let idx = 0;
       const interval = setInterval(() => {
@@ -30,23 +28,29 @@ export default function Hero() {
         if (idx >= FULL_HEADLINE.length) {
           clearInterval(interval);
           setDone(true);
+          setIsTyping(false);
         }
       }, 65);
       return () => clearInterval(interval);
     }, 300);
     return () => clearTimeout(startTimeout);
-  }, [mounted]);
+  }, []);
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-[95vh] flex items-center overflow-hidden py-16 md:py-24 bg-[#050608]">
-      {/* Cover image background */}
-      <div className="absolute inset-0 z-0">
-        <img
+    <section
+      className="relative min-h-[90vh] md:min-h-[95vh] flex items-center overflow-hidden py-16 md:py-24 bg-[#050608]"
+      aria-label="Kibozera — AI Automation Company India"
+    >
+      {/* Cover image background — decorative, preloaded via layout <link rel="preload"> */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <Image
           src="/kz.png"
           alt=""
-          aria-hidden="true"
+          fill
+          priority
           fetchPriority="high"
-          className="w-full h-full object-cover object-center opacity-[0.12]"
+          className="object-cover object-center opacity-[0.12]"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#050608]/80 via-[#050608]/60 to-[#050608]/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050608]/70 via-transparent to-[#050608]/70" />
@@ -67,34 +71,33 @@ export default function Hero() {
           </div>
         </Reveal>
 
-        {/* H1 — SEO: full text always in DOM via sr-only. Visual: character-by-character reveal */}
+        {/* H1 — SSR-safe: full text is always in the DOM for Google crawling.
+            Typewriter runs client-side via CSS opacity trick, never hides server content. */}
         <div className="min-h-[100px] sm:min-h-[130px] md:min-h-[150px] flex items-center justify-center w-full my-4 md:my-6">
           <h1 className="font-display-lg text-3xl sm:text-5xl md:text-[62px] font-bold leading-[1.15] text-white uppercase">
-
-            {/* Always in DOM for SEO — screen readers use this */}
-            <span className="sr-only">{FULL_HEADLINE}</span>
-
-            {/*
-              Visual typewriter layer.
-              Before mount: renders nothing (matches server output — no hydration error).
-              After mount: types character by character.
-            */}
-            <span aria-hidden="true">
-              {mounted ? (
-                <>
+            {isTyping ? (
+              <>
+                <span aria-hidden="true">
                   {displayed}
                   {!done && (
                     <span className="inline-block animate-blink border-r-4 border-cyan-400 ml-0.5 h-[0.85em] align-middle" />
                   )}
-                </>
-              ) : null}
-            </span>
+                </span>
+                {/* Always keep full text visible to crawlers */}
+                <span className="sr-only">{FULL_HEADLINE}</span>
+              </>
+            ) : (
+              /* Before/after typing: show full text — fully SSR and crawler-visible */
+              <>{displayed || FULL_HEADLINE}</>
+            )}
           </h1>
         </div>
 
         <Reveal delay={200} direction="up" className="w-full flex justify-center">
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed mt-2 sm:mt-4 text-base md:text-lg">
-            Kibozera engineers AI-driven automation systems that eliminate operational friction, streamline workflows, and scale business intelligence with precision architecture.
+            Kibozera is an AI automation company that engineers AI agents, workflow automation,
+            RPA, and custom AI systems — eliminating operational friction and scaling business
+            intelligence with precision architecture.
           </p>
         </Reveal>
 
@@ -102,12 +105,12 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 mt-2 w-full px-4 sm:px-0">
             <Link href="/contact">
               <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-primary-container to-secondary-container text-white rounded-xl font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(45,91,255,0.4)] active:scale-95 transition-all cursor-pointer text-sm md:text-base">
-                Request Architecture Consultation
+                Request Free AI Consultation
               </button>
             </Link>
             <Link href="/services">
               <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 border border-white/10 hover:border-white/30 rounded-xl font-bold transition-all bg-white/5 backdrop-blur-sm hover:scale-105 active:scale-95 cursor-pointer text-sm md:text-base">
-                View Automation Systems
+                View AI Automation Services
               </button>
             </Link>
           </div>
@@ -116,16 +119,16 @@ export default function Hero() {
         <Reveal delay={500} direction="up" className="w-full flex justify-center">
           <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs tracking-wider uppercase text-on-surface-variant/60 font-label-sm w-full">
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[16px] text-cyan-400">lock</span>
-              Enterprise-grade automation systems
+              <span className="material-symbols-outlined text-[16px] text-cyan-400" aria-hidden="true">lock</span>
+              Enterprise-grade AI automation
             </div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[16px] text-cyan-400">psychology</span>
+              <span className="material-symbols-outlined text-[16px] text-cyan-400" aria-hidden="true">psychology</span>
               Human-first AI engineering
             </div>
             <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[16px] text-cyan-400">token</span>
-              Secure, scalable, modular architecture
+              <span className="material-symbols-outlined text-[16px] text-cyan-400" aria-hidden="true">token</span>
+              Secure, scalable, modular AI
             </div>
           </div>
         </Reveal>

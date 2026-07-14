@@ -5,6 +5,7 @@ import Link from "next/link";
 import Reveal from "../ui/Reveal";
 
 interface Capability {
+  id: string;
   icon: string;
   category: string;
   title: string;
@@ -15,6 +16,7 @@ interface Capability {
 
 const capabilities: Capability[] = [
   {
+    id: "ai-automation",
     icon: "rocket_launch",
     category: "INTELLIGENCE",
     title: "AI Automation",
@@ -28,6 +30,7 @@ const capabilities: Capability[] = [
     accentColor: "#b8c3ff",
   },
   {
+    id: "ai-agents",
     icon: "support_agent",
     category: "AUTONOMY",
     title: "AI Agents",
@@ -41,6 +44,7 @@ const capabilities: Capability[] = [
     accentColor: "#d0bcff",
   },
   {
+    id: "business-process-automation",
     icon: "settings_suggest",
     category: "AUTOMATION",
     title: "Business Process Automation",
@@ -54,6 +58,7 @@ const capabilities: Capability[] = [
     accentColor: "#ffb59b",
   },
   {
+    id: "custom-ai-solutions",
     icon: "architecture",
     category: "ENGINEERING",
     title: "Custom AI Solutions",
@@ -67,6 +72,7 @@ const capabilities: Capability[] = [
     accentColor: "#b8c3ff",
   },
   {
+    id: "data-intelligence",
     icon: "database",
     category: "ANALYTICS",
     title: "Data Intelligence",
@@ -80,6 +86,7 @@ const capabilities: Capability[] = [
     accentColor: "#d0bcff",
   },
   {
+    id: "ai-integration",
     icon: "join_inner",
     category: "CONNECTIVITY",
     title: "AI Integration",
@@ -93,6 +100,7 @@ const capabilities: Capability[] = [
     accentColor: "#ffb59b",
   },
   {
+    id: "uiux-web-design",
     icon: "palette",
     category: "DESIGN",
     title: "UI/UX & Web Design",
@@ -106,6 +114,7 @@ const capabilities: Capability[] = [
     accentColor: "#b8c3ff",
   },
   {
+    id: "ai-chatbots",
     icon: "chat",
     category: "COMMUNICATION",
     title: "AI Chatbots & Virtual Assistants",
@@ -119,6 +128,7 @@ const capabilities: Capability[] = [
     accentColor: "#d0bcff",
   },
   {
+    id: "ai-marketing-automation",
     icon: "trending_up",
     category: "GROWTH",
     title: "AI-Powered Marketing Automation",
@@ -132,6 +142,7 @@ const capabilities: Capability[] = [
     accentColor: "#ffb59b",
   },
   {
+    id: "computer-vision",
     icon: "visibility",
     category: "VISION",
     title: "Computer Vision Solutions",
@@ -145,6 +156,7 @@ const capabilities: Capability[] = [
     accentColor: "#b8c3ff",
   },
   {
+    id: "cloud-ai-infrastructure",
     icon: "cloud_sync",
     category: "INFRASTRUCTURE",
     title: "Cloud AI Infrastructure",
@@ -186,6 +198,7 @@ function ServiceCard({ cap, idx }: { cap: Capability; idx: number }) {
   return (
     <Reveal delay={idx * 80} direction="up" className="h-full">
       <div
+        id={cap.id}
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}

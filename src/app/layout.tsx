@@ -25,28 +25,47 @@ const geist = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kibozera.com"),
   title: {
-    default: "Kibozera | Transform Your Business With Intelligent AI Automation",
-    template: "%s | Kibozera",
+    default: "Kibozera | AI Automation Company India — Intelligent Business Automation",
+    template: "%s | Kibozera AI Automation",
   },
   description:
-    "Kibozera builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering. Based in Tamil Nadu, India.",
+    "Kibozera is India's leading AI automation company. We build AI agents, workflow automation, RPA, and custom AI solutions that reduce manual work and help businesses scale faster. Based in Tamil Nadu — serving clients worldwide.",
   keywords: [
-    "AI Automation",
-    "Workflow Automation",
-    "Enterprise AI",
-    "Machine Learning Solutions",
+    // Brand
     "Kibozera",
-    "Operations Optimization",
-    "AI Agents",
-    "Business Intelligence",
+    "Kibozera AI",
+    "Kibozera automation",
+    "Kibozera services",
+    // Core service keywords
     "AI automation company India",
-    "business process automation startup",
+    "AI automation startup India",
+    "workflow automation India",
+    "business process automation India",
+    "AI agents India",
+    "RPA automation India",
+    "intelligent automation India",
+    "enterprise AI solutions India",
+    // Long-tail
+    "AI automation company Tamil Nadu",
+    "AI automation Tiruppur",
     "custom AI solutions India",
-    "AI agents for business",
-    "RPA automation",
-    "AI integration services",
+    "AI integration services India",
+    "machine learning solutions India",
+    "AI chatbot development India",
+    "computer vision solutions India",
+    "cloud AI infrastructure India",
+    "AI marketing automation India",
+    // Generic high-value
+    "AI automation",
+    "workflow automation",
+    "business automation",
+    "AI agents",
+    "machine learning solutions",
+    "enterprise AI",
+    "operations optimization AI",
+    "data intelligence platform",
   ],
-  authors: [{ name: "Kibozera Team" }],
+  authors: [{ name: "Kibozera Team", url: "https://www.kibozera.com/team" }],
   creator: "Kibozera",
   publisher: "Kibozera",
   category: "Technology",
@@ -54,30 +73,36 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
+    alternateLocale: ["en_US", "en_GB"],
     url: "https://www.kibozera.com",
-    title: "Kibozera | Transform Your Business With Intelligent AI Automation",
+    title: "Kibozera | AI Automation Company India — Intelligent Business Automation",
     description:
-      "Kibozera builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering.",
+      "Kibozera builds AI-powered automation systems — AI agents, workflow automation, RPA, and custom AI solutions that reduce manual work and help businesses scale. Based in Tamil Nadu, India.",
     siteName: "Kibozera",
     images: [
       {
         url: "/kz.png",
         width: 1200,
         height: 630,
-        alt: "Kibozera AI Automation Systems",
+        alt: "Kibozera — AI Automation Company India",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kibozera | Transform Your Business With Intelligent AI Automation",
+    site: "@kibozera",
+    creator: "@kibozera",
+    title: "Kibozera | AI Automation Company India",
     description:
-      "Kibozera builds AI-powered automation systems that reduce manual work, optimize operations, and help businesses scale faster through precision engineering.",
+      "AI agents, workflow automation, RPA, and custom AI solutions. Kibozera helps businesses eliminate manual work and scale with precision AI engineering.",
     images: ["/kz.png"],
   },
   alternates: {
     canonical: "https://www.kibozera.com",
     languages: {
+      "x-default": "https://www.kibozera.com",
+      "en": "https://www.kibozera.com",
       "en-IN": "https://www.kibozera.com",
     },
   },
@@ -87,6 +112,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
     googleBot: {
       index: true,
       follow: true,
@@ -100,6 +128,9 @@ export const metadata: Metadata = {
     "geo.placename": "Tiruppur, Tamil Nadu",
     "geo.position": "11.1085;77.3411",
     ICBM: "11.1085, 77.3411",
+    "theme-color": "#b8c3ff",
+    "msapplication-TileColor": "#050608",
+    "application-name": "Kibozera",
   },
 };
 
@@ -114,10 +145,23 @@ export default function RootLayout({
       className={`${inter.variable} ${outfit.variable} ${geist.variable} dark h-full antialiased`}
     >
       <head>
+        {/* Preconnect for faster font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Material Symbols font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
+
+        {/* Preload hero image for LCP */}
+        <link rel="preload" as="image" href="/kz.png" fetchPriority="high" />
+
+        {/* Theme color for mobile browsers */}
+        <meta name="theme-color" content="#b8c3ff" />
+        <meta name="msapplication-navbutton-color" content="#050608" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="min-h-full flex flex-col font-body-md text-body-md scrollbar-custom bg-[#050608] text-[#e2e2e8]">
         <Header />
