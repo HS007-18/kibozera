@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         // All bots: index everything except API routes
         userAgent: "*",
-        allow: ["/", "/about", "/services", "/team", "/contact"],
+        allow: ["/", "/about", "/services", "/contact"],
         disallow: ["/api/", "/_next/", "/static/"],
       },
       {

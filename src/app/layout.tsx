@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     "operations optimization AI",
     "data intelligence platform",
   ],
-  authors: [{ name: "Kibozera Team", url: "https://www.kibozera.com/team" }],
+  authors: [{ name: "Kibozera Team", url: "https://www.kibozera.com/about" }],
   creator: "Kibozera",
   publisher: "Kibozera",
   category: "Technology",

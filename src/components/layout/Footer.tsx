@@ -19,7 +19,6 @@ export default function Footer() {
       label: "Company",
       links: [
         { name: "About Kibozera", href: "/about" },
-        { name: "Our Team", href: "/team" },
         { name: "Contact Us", href: "/contact" },
       ],
     },
